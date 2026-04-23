@@ -111,3 +111,42 @@ probabilities = model.predict_proba(X_new)[:, 1]
 - `--dry-run` validates data and prints full pipeline config without fitting any models
 - Script is importable as a module — all functions can be tested independently
 - Refactored from `model_comparison.py` (Integration 5B base assignment)
+
+## Repository Structure
+├── compare_models.py        # Production CLI script (stretch deliverable)
+├── model_comparison.py      # Original Integration 5B script (refactored into compare_models.py)
+├── README.md                # This file
+├── requirements.txt         # Python dependencies
+├── data/
+│   └── telecom_churn.csv    # Petra Telecom dataset
+└── output/                  # Sample output from running compare_models.py
+├── comparison_table.csv
+├── experiment_log.csv
+├── pr_curves.png
+├── calibration.png
+├── best_model.joblib
+├── threshold_sweep.png
+└── tree_vs_linear_disagreement.md
+
+## Why model_comparison.py is included
+
+The stretch assignment asks to "refactor the pipeline from Integration 5B into a 
+production CLI tool." `model_comparison.py` is the original Integration 5B script 
+that `compare_models.py` was refactored from. Including both files makes the 
+before/after comparison explicit:
+
+- `model_comparison.py` — notebook-style script with hardcoded paths, print 
+  statements, and no CLI interface
+- `compare_models.py` — production CLI with argparse, structured logging, 
+  --dry-run mode, and configurable arguments
+
+The key differences between the two scripts:
+
+| Feature | model_comparison.py | compare_models.py |
+|---|---|---|
+| Arguments | Hardcoded | CLI via argparse |
+| Output | print() | logging module |
+| Data path | Fixed default | --data-path required |
+| Validation | None | --dry-run mode |
+| Output dir | Hardcoded results/ | --output-dir configurable |
+| Error handling | None | sys.exit(1) with [ERROR] log |
