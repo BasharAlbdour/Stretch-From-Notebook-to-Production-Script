@@ -113,20 +113,24 @@ probabilities = model.predict_proba(X_new)[:, 1]
 - Refactored from `model_comparison.py` (Integration 5B base assignment)
 
 ## Repository Structure
-├── compare_models.py        # Production CLI script (stretch deliverable)
-├── model_comparison.py      # Original Integration 5B script (refactored into compare_models.py)
-├── README.md                # This file
-├── requirements.txt         # Python dependencies
+```
+Stretch-From-Notebook-to-Production-Script/
+├── compare_models.py       ← Production CLI script (stretch deliverable)
+├── model_comparison.py     ← Original Integration 5B script
+├── README.md               ← This file
+├── requirements.txt        ← Python dependencies
 ├── data/
-│   └── telecom_churn.csv    # Petra Telecom dataset
-└── output/                  # Sample output from running compare_models.py
-├── comparison_table.csv
-├── experiment_log.csv
-├── pr_curves.png
-├── calibration.png
-├── best_model.joblib
-├── threshold_sweep.png
-└── tree_vs_linear_disagreement.md
+│   └── telecom_churn.csv   ← Petra Telecom dataset
+└── output/                 ← Sample output from running compare_models.py
+    ├── comparison_table.csv
+    ├── experiment_log.csv
+    ├── pr_curves.png
+    ├── calibration.png
+    ├── best_model.joblib
+    ├── threshold_sweep.png
+    └── tree_vs_linear_disagreement.md
+    └── sample_output.txt
+```
 
 ## Why model_comparison.py is included
 

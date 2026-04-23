@@ -1,0 +1,47 @@
+2026-04-23 13:01:49 [INFO] Starting Petra Telecom Churn Model Comparison Pipeline
+2026-04-23 13:01:49 [INFO] Data path:   data/telecom_churn.csv
+2026-04-23 13:01:49 [INFO] Output dir:  ./output
+2026-04-23 13:01:49 [INFO] Folds:       5
+2026-04-23 13:01:49 [INFO] Random seed: 42
+2026-04-23 13:01:49 [INFO] Dry run:     False
+2026-04-23 13:01:49 [INFO] Output directory: ./output
+2026-04-23 13:01:49 [INFO] Loaded data from data/telecom_churn.csv (4,500 rows, 14 columns)
+2026-04-23 13:01:49 [INFO] Dataset shape: 4,500 rows × 14 columns
+2026-04-23 13:01:49 [INFO] Class distribution: 736 churners / 4,500 total (16.4% positive rate)
+2026-04-23 13:01:49 [INFO] Data validation passed
+2026-04-23 13:01:49 [INFO] Split: 3,600 train / 900 test
+2026-04-23 13:01:49 [INFO] Defined 6 model configurations: ['Dummy', 'LR_default', 'LR_balanced', 'DT_depth5', 'RF_default', 'RF_balanced']
+2026-04-23 13:01:49 [INFO] Running 5-fold stratified cross-validation...
+2026-04-23 13:01:49 [INFO]   Cross-validating: Dummy
+2026-04-23 13:01:49 [INFO]   Cross-validating: LR_default
+2026-04-23 13:01:49 [INFO]   Cross-validating: LR_balanced
+2026-04-23 13:01:49 [INFO]   Cross-validating: DT_depth5
+2026-04-23 13:01:50 [INFO]   Cross-validating: RF_default
+2026-04-23 13:01:51 [INFO]   Cross-validating: RF_balanced
+2026-04-23 13:01:55 [INFO] === Model Comparison Table (CV) ===
+2026-04-23 13:01:55 [INFO]   Dummy           | PR-AUC: 0.164 ± 0.001 | Recall: 0.000 | Precision: 0.000
+2026-04-23 13:01:55 [INFO]   LR_default      | PR-AUC: 0.466 ± 0.016 | Recall: 0.195 | Precision: 0.714
+2026-04-23 13:01:55 [INFO]   LR_balanced     | PR-AUC: 0.463 ± 0.016 | Recall: 0.703 | Precision: 0.321
+2026-04-23 13:01:55 [INFO]   DT_depth5       | PR-AUC: 0.450 ± 0.027 | Recall: 0.285 | Precision: 0.644
+2026-04-23 13:01:55 [INFO]   RF_default      | PR-AUC: 0.514 ± 0.034 | Recall: 0.239 | Precision: 0.734
+2026-04-23 13:01:55 [INFO]   RF_balanced     | PR-AUC: 0.471 ± 0.040 | Recall: 0.472 | Precision: 0.427
+2026-04-23 13:01:55 [INFO] Saved comparison table to ./output\comparison_table.csv
+2026-04-23 13:01:55 [INFO] Saved experiment log to ./output\experiment_log.csv
+2026-04-23 13:01:55 [INFO] Fitting all models on full training set...
+2026-04-23 13:01:55 [INFO]   Fitted: Dummy
+2026-04-23 13:01:55 [INFO]   Fitted: LR_default
+2026-04-23 13:01:55 [INFO]   Fitted: LR_balanced
+2026-04-23 13:01:55 [INFO]   Fitted: DT_depth5
+2026-04-23 13:01:56 [INFO]   Fitted: RF_default
+2026-04-23 13:01:56 [INFO]   Fitted: RF_balanced
+2026-04-23 13:01:56 [INFO] Generating plots...
+2026-04-23 13:01:57 [INFO] Saved PR curves to ./output\pr_curves.png
+2026-04-23 13:01:57 [INFO] Saved calibration curves to ./output\calibration.png
+2026-04-23 13:01:57 [INFO] Best model: RF_default — saved to ./output\best_model.joblib
+2026-04-23 13:01:57 [INFO] Running threshold optimization...
+2026-04-23 13:01:57 [INFO] Recommended threshold: 0.7 (precision=0.778, recall=0.048, alerts_per_10k=100.0)
+2026-04-23 13:01:58 [INFO] Saved threshold sweep plot to ./output\threshold_sweep.png
+2026-04-23 13:01:58 [INFO] Finding tree-vs-linear disagreement...
+2026-04-23 13:01:58 [INFO] Tree-vs-linear disagreement: sample_idx=4060, RF=0.600, LR=0.170, diff=0.430, true_label=0
+2026-04-23 13:01:58 [INFO] Saved disagreement analysis to ./output\tree_vs_linear_disagreement.md
+2026-04-23 13:01:58 [INFO] === Pipeline complete — all results saved ===
